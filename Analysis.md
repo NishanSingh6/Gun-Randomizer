@@ -1,7 +1,7 @@
 
 # Analysis of move constructor
-Let n represents the total number of records in the table and lets assume that rhs table has the same number of records as current table.
-Let $T(n)$ be number of operations in move constructor
+Let n represents the total number of records in the table and lets assume that rhs table has the same number of records as current table.<br>
+Let $T(n)$ be number of operations in move constructor<br>
 
 Now lets count the number of operations in move constructor:
 ```
