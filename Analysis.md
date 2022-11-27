@@ -17,7 +17,7 @@ SimpleTable<TYPE>::SimpleTable(const SimpleTable<TYPE>& rhs){
 }
 ```
 By adding the total number of operations we can derive the following equation:
-$$T(n) = 4 + 1 + 1 + n + 1 + 2n + 1 + (n + 1) \mul (n) + n + n \mul n $$
+$$T(n) = 4 + 1 + 1 + n + 1 + 2n + 1 + (n + 1) \times (n) + n + n \times n $$
 $$T(n) = 4 + 1 + 1 + n + 1 + 2n + 1 + n^2 + n + n + n^2$$
 $$T(n) = n^2 + n^2 + n + 2n + 2n + 6 + 2$$
 $$T(n) = 2n^2 + 5n + 8$$
