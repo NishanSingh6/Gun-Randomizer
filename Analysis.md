@@ -4,7 +4,7 @@ Let n represents the total number of records in the table and lets assume that r
 Let $T(n)$ be number of operations in move constructor<br>
 
 Now lets count the number of operations in move constructor:
-```
+```cpp
 template <class TYPE>
 SimpleTable<TYPE>::SimpleTable(SimpleTable<TYPE>&& rhs){
     capacity_=rhs.capacity_;    //1
