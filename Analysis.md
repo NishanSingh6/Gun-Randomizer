@@ -19,10 +19,10 @@ SimpleTable<TYPE>::SimpleTable(const SimpleTable<TYPE>& rhs){
 }
 ```
 By adding the total number of operations we can derive the following equation:
-$$T(n) = 4 + 1 + 1 + n + 1 + 2n + 1 + (n + 1) \times (n) + n + n \times n $$
-$$T(n) = 4 + 1 + 1 + n + 1 + 2n + 1 + n^2 + n + n + n^2$$
-$$T(n) = n^2 + n^2 + n + 2n + 2n + 6 + 2$$
-$$T(n) = 2n^2 + 5n + 8$$
+$$T(n) = 4 + 1 + 1 + n + 1 + n + 2n + 1 + (n + 1) \times (n) + n + n \times n $$
+$$T(n) = 4 + 1 + 1 + n + 1 + 3n + 1 + n^2 + n + n + n^2$$
+$$T(n) = n^2 + n^2 + n + 3n + 2n + 6 + 2$$
+$$T(n) = 2n^2 + 6n + 8$$
 Therefore $T(n)$ is $O(n^2)$, copy constructor is quadratic.
 
 # 7. Analysis of move constructor
@@ -75,3 +75,26 @@ $$T(n) = 2 + n^2 + n + n^3 + 2n + 6$$
 $$T(n) = n^3 + n^2 + 2n + n + 6 + 2 $$
 $$T(n) = n^3 + n^2 + 3n + 8$$
 Therefore, $T(n)$ is $O(n^3)$, move assignment operator is cubic. 
+
+# 9. Destructor
+Lets count the number of operations:
+```cpp
+template <class TYPE>
+SimpleTable<TYPE>::~SimpleTable(){
+    if(records_){                   //1
+        int sz=numRecords();        //1
+        for(int i=0;i<sz;i++){      //1 + (n + 1) + n
+            remove(records_[0]->key_);  // n(n^2 + 2) we know that time complexity of remove(), if item is there, is O(n^2). 
+                                        //so, number of operations for remove functions will be n^2 and some constant, 
+                                        //Loop will run n times and remove have n^2 operations, so it will be n*n^2 
+        }
+        delete [] records_;         //1
+    }
+}
+```
+By adding all the operations we can derive the following equation:
+$$T(n) = 1 + 1 + 1 + (n + 1) + n + n(n^2 + 2) + 1$$
+$$T(n) = 3 + n + 1 + n + n(n^2 + 2) + 1$$
+$$T(n) = 2n + 4 + n^3 + 2n + 1$$
+$$T(n) = n^3 + 4n + 5$$
+Therefore, T(n) is O(n^3), destructor is cubic.
