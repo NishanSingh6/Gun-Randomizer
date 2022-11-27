@@ -97,4 +97,4 @@ $$T(n) = 1 + 1 + 1 + (n + 1) + n + n(n^2 + 2) + 1$$
 $$T(n) = 3 + n + 1 + n + n(n^2 + 2) + 1$$
 $$T(n) = 2n + 4 + n^3 + 2n + 1$$
 $$T(n) = n^3 + 4n + 5$$
-Therefore, T(n) is O(n^3), destructor is cubic.
+Therefore, $T(n)$ is $O(n^3)$, destructor is cubic.
